@@ -1,12 +1,18 @@
-<% events.forEach(event => { %>
-    <div>
-        <h3><%= event.title %></h3>
-        <div><%= event.description %></div>
-        <div><%= event.date.toISOString().split('T')[0] %></div>
-        <div><%= event.organizer %></div>
+<% if (events.length > 0) {
+        events.forEach(event => { %>
         <div>
-            <a href="#">Register</a>
-            <a href="#">View</a>
+            <h3><%= event.title %></h3>
+            <div><%= event.description %></div>
+            <div><%= event.date.toISOString().split('T')[0] %></div>
+            <div><%= event.organizer %></div>
+            <div>
+                <a href="#">Register</a>
+                <a href="#">View</a>
+            </div>
         </div>
-    </div>
-<% }) %>
+    <% }) } else { %>
+        <div>
+            <p>Nothing to show.</p>
+            <p>Follow this <a href="/seed-a-new">link</a> to populate Events list.</p>
+        </div>
+    <% } %>

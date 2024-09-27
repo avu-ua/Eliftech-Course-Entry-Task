@@ -73,7 +73,7 @@ function generateParticipants() {
 
 // Helper function generating random number of dummy Events
 function populateEvents() {
-    const eventsNumber = Math.floor(Math.random() * 51) + 50
+    const eventsNumber = Math.floor(Math.random() * 51) + 25
     const events = []
 
     for (let i = 0; i < eventsNumber; i++) {

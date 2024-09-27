@@ -6,7 +6,7 @@
             <div><%= event.date.toISOString().split('T')[0] %></div>
             <div><%= event.organizer %></div>
             <div>
-                <a href="#">Register</a>
+                <a href="/register/<%= event.id%>">Register</a>
                 <a href="/participants/<%= event.id%>">View</a>
             </div>
         </div>

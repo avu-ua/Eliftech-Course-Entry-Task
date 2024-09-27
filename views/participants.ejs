@@ -1,0 +1,13 @@
+<h2>"<%= event.title %> Event" participants:</h2>
+<div>
+    <% if (event.participants.length > 0) {
+        event.participants.forEach(p => { %>
+            <div>
+                <p><%= p.fullName %></p>
+                <p><%= p.email %></p>
+            </div>
+        <% })
+    } else { %>
+        <p>No participants for this Event so far.</p>
+    <% } %>
+</div>

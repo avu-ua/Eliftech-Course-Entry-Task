@@ -11,8 +11,8 @@ router.get('/', async (req, res) => {
         res.render('index', {
             events: events
         })
-    } catch {
-        // res.redirect('/')
+    } catch (err) {
+        console.log(err)
         res.redirect('error')
     }
 })

@@ -1,13 +1,19 @@
-<h2>"<%= event.title %> Event" participants:</h2>
-<div>
-    <% if (event.participants.length > 0) {
-        event.participants.forEach(p => { %>
-            <div>
-                <p><%= p.fullName %></p>
-                <p><%= p.email %></p>
-            </div>
-        <% })
-    } else { %>
-        <p>No participants for this Event so far.</p>
-    <% } %>
+<div class="page-title">
+    <h2>Event Participants</h2>
+</div>
+
+<div class="participants-container">
+    <h3>"<%= event.title %> Event" participants:</h3>
+    <div class="participants-grid">
+        <% if (event.participants.length > 0) {
+            event.participants.forEach(p => { %>
+                <div class="participant-card">
+                    <p><%= p.fullName %></p>
+                    <p><%= p.email %></p>
+                </div>
+            <% })
+        } else { %>
+            <p>No participants for this Event so far.</p>
+        <% } %>
+    </div>
 </div>

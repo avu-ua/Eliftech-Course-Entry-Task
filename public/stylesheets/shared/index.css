@@ -1,0 +1,33 @@
+.events-container {
+  border: 2px outset #999999;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, calc(min(20rem, 65vw)));
+}
+
+.event-card {
+  padding: 1rem;
+  border: 1px solid #999999;
+  border-radius: .5rem;
+}
+
+.event-card h3 {
+  height: 2.5rem;
+  margin: 0;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  transition: .3s;
+}
+
+.event-details {
+  height: 10rem;
+}
+
+.event-details p {
+  font-size: .75rem;
+}

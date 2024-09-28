@@ -1,1 +1,27 @@
-Middle
+<div class="page-title">
+    <h2>Events Board</h2>
+</div>
+
+<div class="events-container">
+    <% if (events.length > 0) {
+        events.forEach(event => { %>
+            <div class="event-card">
+                <h3><u>Title:</u> <%= event.title %></h3>
+                <div class="event-details">
+                    <p><u>Description:</u> <%= event.description %></p>
+                    <p><u>Date:</u> <%= event.date.toISOString().split('T')[0] %></p>
+                    <p><u>Organizer:</u> <%= event.organizer %></p>
+                </div>
+                <div class="btns-container">
+                    <a class="btn btn-primary" href="/register/<%= event.id%>">Register</a>
+                    <a class="btn btn-primary" href="/participants/<%= event.id%>">View</a>
+                </div>
+            </div>
+        <% })
+    } else { %>
+        <div>
+            <p>Nothing to show.</p>
+            <p>Follow this <a href="/seed-a-new">link</a> to populate Events list.</p>
+        </div>
+    <% } %>
+</div>

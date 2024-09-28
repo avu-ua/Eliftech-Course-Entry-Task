@@ -1,0 +1,32 @@
+.form-section {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.form-section > *:first-child {
+  width: 8rem;
+}
+
+.form-section > *:last-child {
+  background-color: #8ab9e1;
+  border: 1px inset #999999;
+  border-radius: .2rem;
+}
+
+.form-section input {
+  font-size: 1rem;
+  font-family: "Gowun Batang", serif;
+}
+
+.form-section-last {
+  margin-bottom: 2rem;
+}
+
+.form-radio-section {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.form-radio-section > * {
+  margin-right: 2rem;
+}

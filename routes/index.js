@@ -6,10 +6,20 @@ const { faker } = require('@faker-js/faker');
 
 // All Events Route
 router.get('/', async (req, res) => {
+    const page = parseInt(req.query.page) || 1
+    const limit = 6
     try {
+        const eventsCount = await Event.countDocuments({})
+        const totalPages = Math.ceil(eventsCount / limit)
+
         const events = await Event.find({})
+                                  .skip((page - 1) * limit)
+                                  .limit(limit)
+
         res.render('index', {
-            events: events
+            events: events,
+            currentPage: page,
+            totalPages: totalPages
         })
     } catch (err) {
         console.log(err)

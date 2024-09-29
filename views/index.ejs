@@ -1,27 +1,45 @@
-<div class="page-title">
+<div class="page-title"></div>
     <h2>Events Board</h2>
 </div>
 
 <div class="events-container">
-    <% if (events.length > 0) {
-        events.forEach(event => { %>
-            <div class="event-card">
-                <h3><u>Title:</u> <%= event.title %></h3>
-                <div class="event-details">
-                    <p><u>Description:</u> <%= event.description %></p>
-                    <p><u>Date:</u> <%= event.date.toISOString().split('T')[0] %></p>
-                    <p><u>Organizer:</u> <%= event.organizer %></p>
+    <div class="events-grid">
+        <% if (events.length > 0) {
+            events.forEach(event => { %>
+                <div class="event-card">
+                    <h3><u>Title:</u> <%= event.title %></h3>
+                    <div class="event-details">
+                        <p><u>Description:</u> <%= event.description %></p>
+                        <p><u>Date:</u> <%= event.date.toISOString().split('T')[0] %></p>
+                        <p><u>Organizer:</u> <%= event.organizer %></p>
+                    </div>
+                    <div class="btns-container">
+                        <a class="btn btn-primary" href="/register/<%= event.id %>">Register</a>
+                        <a class="btn btn-primary" href="/participants/<%= event.id %>">View</a>
+                    </div>
                 </div>
-                <div class="btns-container">
-                    <a class="btn btn-primary" href="/register/<%= event.id%>">Register</a>
-                    <a class="btn btn-primary" href="/participants/<%= event.id%>">View</a>
-                </div>
+            <% })
+        } else { %>
+            <div>
+                <p>Nothing to show.</p>
+                <p>Follow this <a href="/seed-a-new">link</a> to populate Events list.</p>
             </div>
-        <% })
-    } else { %>
-        <div>
-            <p>Nothing to show.</p>
-            <p>Follow this <a href="/seed-a-new">link</a> to populate Events list.</p>
-        </div>
-    <% } %>
+        <% } %>
+    </div>
+
+    <div class="pagination">
+        <% if (currentPage > 1) { %>
+            <a href="/?page=<%= currentPage - 1 %>" class="pagination-arrow">←</a>
+        <% } %>
+
+        <% for (let i = 1; i <= totalPages; i++) { %>
+            <a href="/?page=<%= i %>" class="<%= currentPage === i ? 'pagination-active' : 'pagination-inactive' %>">
+                <%= i %>
+            </a>
+        <% } %>
+
+        <% if (currentPage < totalPages) { %>
+            <a href="/?page=<%= currentPage + 1 %>" class="pagination-arrow">→</a>
+        <% } %>
+    </div>
 </div>

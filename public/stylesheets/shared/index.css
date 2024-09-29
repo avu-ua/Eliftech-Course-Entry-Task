@@ -2,6 +2,9 @@
   border: 2px outset #999999;
   border-radius: 1rem;
   padding: 1rem;
+}
+
+.events-grid {
   display: grid;
   justify-content: center;
   grid-gap: 2rem;
@@ -30,4 +33,31 @@
 
 .event-details p {
   font-size: .75rem;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  font-size: .8rem;
+  margin: 0 5px;
+}
+
+.pagination-arrow {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pagination-active {
+  text-decoration: none;
+  color: #6c757d;
+  cursor: auto;
+}
+
+.pagination-inactive {
+  color: #007bff;
+  cursor: pointer;
 }
